@@ -4,26 +4,57 @@ body {
   font-size: 1em;
 }
 
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(209, 209, 209);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(129, 129, 129);
+  border-radius: 1rem;
+}
+
 .info-page {
   display: grid; 
   width: 100%;
   height: 100vh;
-  grid-template-rows: 6rem 2rem 1fr 5rem;
+  grid-template-rows: 7rem 2rem 1fr 5rem;
   grid-template-columns: 10rem 1fr;
   grid-template-areas:
-  'lg hd'
+  'tc tc'
   'nv nv'
   'mn mn'
   'ft ft'
+}
+
+#top-container {
+  grid-area: tc;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 #logo {
   grid-area: lg;
   background-color: transparent;
   background-image: url("../img/Logga.png");
-  background-size: 65%;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  float: left;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 0 0 1rem;
+}
+
+#header-container {
+  width: 100%;
+  position: absolute;
 }
 
 header {
@@ -32,6 +63,8 @@ header {
   display: grid;
   align-items: center;
   justify-content: center;
+  height: auto;
+  margin: auto;
 }
 
 header h1 {
@@ -46,17 +79,157 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+
+nav::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.1rem;
+  bottom: -1rem;
+  left: 5%;
+  background: white;
 }
 
 main {
   grid-area: mn;
   background-color: transparent;
   color: white;
+  padding: 2rem;;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row;
+  background-color: transparent;
+}
+
+.content-container {
+  width: 80vw;
+  height: auto;
+  background-color: transparent;
+  overflow: auto;
+  background-color: transparent;
+}
+
+.title {
+  height: fit-content;
+  margin: 1rem auto 1rem auto;
+  width: fit-content;
+  font-size: 3rem;
+}
+
+#menu-container {
+  display: flex;
+  justify-content: center;
+  width: 45rem;
+}
+
+.menu-item {
+  text-align: center;
+  margin: 2rem auto 2rem auto;
+  width: 40rem;
+  height: fit-content;
+}
+
+article {
+  width: 50rem;
+  height: auto;
+  height: 10rem;
+  background-color: transparent;
+  margin: 2rem auto;
+}
+
+.info-article {
+  height: 13rem;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+#about-restaurant {
+  justify-content: left;
+}
+
+#about-owner {
+  justify-content: right;
+}
+
+article h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.3rem;
+}
+
+article p {
+  font-size: 1.2rem;
+}
+
+.info-article img {
+  height: 100%;
+  width: auto;
+  border-radius: 1rem;
+}
+
+.info-article-text {
+  height: auto;
+  width: 18rem;
+  margin: auto 1rem auto 1rem;
+  background-color: transparent;
+}
+
+.person-article {
+  width: 15rem;
+  height: fit-content;
+  color: white;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.person-article img {
+  height: auto;
+  width: 100%;
+  border-radius: 1rem;
+  margin: 0 auto 0 auto;
+}
+
+.person-article-text {
+  height: auto;
+  width: auto;  
+  background-color: transparent;
+  text-align: center;
+}
+
+.person-article-text > h2 {
+  margin: 0.5rem;
+}
+
+.person-article-text > p {
+  margin: 0;
 }
 
 footer {
   grid-area: ft;
-  background-color: chartreuse;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.1rem;
+  bottom: 100%;
+  left: 5%;
+  background: white;
 }
 
 .nav-button {
@@ -66,9 +239,45 @@ footer {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
 }
 
-.nav-button:hover {
-  border-radius: 0.2rem;
-  outline: 2px solid white;
+.page-link {
+  text-decoration: none;
+  color: white;
+}
+
+.hover-line::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: -15%;
+  width: 130%;
+  height: 0.1rem;
+  background: white;
+
+  transform: scale(0, 1);
+  transition: transform 0.3s ease;
+}
+
+.hover-line:hover::after {
+  transform: scale(1, 1);
+}
+
+footer h2 {
+  color: white;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  width: fit-content;
+  background-color: transparent;
+  position: relative;
+}
+
+footer p {
+  background-color: transparent;
+  width: fit-content;
+  position: relative;
+  color: white;
+  font-size: 1.5rem;
 }
