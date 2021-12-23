@@ -184,9 +184,6 @@ article p {
   width: 15rem;
   height: fit-content;
   color: white;
-  display: flexbox;
-  align-items: center;
-  justify-content: center;
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
